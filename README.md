@@ -1,5 +1,12 @@
 This the official blazing fast UAC-bypassing Rubber Ducky payload generator.
 
+          _   _  _   ___   ___  _   _  ___ _  __
+         | | | |/_\ / __| |   \| | | |/ __| |/ /
+         | |_| / _ \ (__  | |) | |_| | (__| ' <
+          \___/_/ \_\___| |___/ \___/ \___|_|\_\
+
+        [+++++++++++++++++++++++++++++++++++++++]
+        
 Our Goal.
 Our main goal is to silently and FAST download an drop any binary executable to an Windows box,granting it administrate privileges to freely roam the system.
 
