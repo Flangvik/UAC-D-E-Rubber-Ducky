@@ -23,4 +23,5 @@ Stage 2:
 Once your .vbs payload is on the system, we proceed to download our main binary payload. The .vbs script exploits a flaw in the windows registry system, this allows us to execute and binary file on the system with admin privilege without prompting the user for access (UAC).
 
 This flaw has been tested working until Windows 10 update 1607 Released LATE 2016.
+After the 1607 fix, the file will still execute, but with normal user-account privileges. 
 
