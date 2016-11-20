@@ -1,4 +1,5 @@
 This the official blazing fast UAC-bypassing Rubber Ducky payload generator.
+For anything related , hit me up: https://twitter.com/SkiddieTech
 
           _   _  _   ___   ___  _   _  ___ _  __
          | | | |/_\ / __| |   \| | | |/ __| |/ /
