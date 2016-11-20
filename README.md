@@ -12,6 +12,8 @@ The one liner is a simple powershell script, that when executes instantly hides 
 The powershell script downloads and execute our stage 2 .vbs payload in the %temp% directory
 
 Stage 2:
-Once your .vbs payload is on the system, we proceed to download our main binary payload. The .vbs script exploits a flaw in the windows registry system, this allows us to execute and binary file on the system with admin privilege without prompting the user for access (UAC).
+Once your .vbs payload is on the system, we proceed to download our main binary payload. The .vbs script exploits a flaw in the windows registry system, this allows us to execute any binary file on the system with admin privilege without prompting the user for access (UAC).
 
-This flaw has been tested working until Windows 10 update 1607 Released LATE 2016, however i have not tested further updates. (
+This UAC flaw has been tested working until Windows 10 update 1607 Released LATE 2016.
+The lastest update will not cause any issues, as the file will still execute, but it will not execute with admin privileges.
+All other Windows systems that have the UAC system is effected by this. 
