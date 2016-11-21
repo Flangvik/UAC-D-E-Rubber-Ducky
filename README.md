@@ -22,6 +22,11 @@ The powershell script downloads and execute our stage 2 .vbs payload in the %tem
 Stage 2:
 Once your .vbs payload is on the system, we proceed to download our main binary payload. The .vbs script exploits a flaw in the windows registry system, this allows us to execute and binary file on the system with admin privilege without prompting the user for access (UAC).
 
-This flaw has been tested working until Windows 10 update 1607 Released LATE 2016.
-After the 1607 fix, the file will still execute, but with normal user-account privileges. 
+NT Authority/System on ANY windows system u say?
+
+As far as i can tell, still after the latest Windows 10 update, using this setup togheter with the "Getsystem" script in the meterpreter module, we will always be able to get NT Authority/System permisson using Tech 1 (Named Pipe Impersonation (In Memory/Admin))
+
+Tested on Win7,Win8 and Win10 running latest update.
+That is pretty sick...
+
 
