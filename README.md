@@ -30,14 +30,8 @@ As far as i can tell, still after the latest Windows 10 update, using this setup
 Tested on Win7,Win8 and Win10 running latest update.
 That is pretty sick...
 
-Video demo of the VBS payload, i will be showing full execution using the rubber ducky very soon.
-http://sendvid.com/g4nj0crt
+Full demo video: http://sendvid.com/uh6i317i
 
 As you can see, we get an meterpreter shell that says it's running under user, however, if we drop into a CMD shell inside the meterpreter module, we can see we are running inside the system32 dir, indicating that we are running as admin, we can even use the getsystem script in the meterpreter module to gain NT System privliges, that's pretty sick.(Tested working on Win7,Win8 and Win10! 
-
-
-Here is a video doing a normal run, as you see we get a shell in "userland" and we cannot gain any further privliges using the "getsystem" script.
-http://sendvid.com/j6tdud7x
-
 
 >>>>>>> origin/master
