@@ -140,7 +140,6 @@ def getcomoff():
 	
 def main():
 	
-	print 'Duckencoder.jar acquired!' 
 	print """
 	  _   _  _   ___   ___  _   _  ___ _  __
 	 | | | |/_\ / __| |   \| | | |/ __| |/ /
