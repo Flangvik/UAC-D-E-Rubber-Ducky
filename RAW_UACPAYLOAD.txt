@@ -23,7 +23,7 @@ On Error Resume Next
 
      'on error cleanup and exit
 
-	CreateObject("WScript.Shell").Run "cmd /c del" + WScript.ScriptFullName, 0, False
+	CreateObject("WScript.Shell").Run "cmd /c del " + WScript.ScriptFullName, 0, False
 
      WScript.Quit 4711
 
