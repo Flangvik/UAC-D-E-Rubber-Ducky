@@ -1,3 +1,5 @@
+As featured on HAK5 - 2117, thanks! :) 
+
 This the official blazing fast UAC-bypassing Rubber Ducky payload generator.
 For anything related , hit me up: https://twitter.com/SkiddieTech
 
@@ -8,8 +10,8 @@ For anything related , hit me up: https://twitter.com/SkiddieTech
 
         [+++++++++++++++++++++++++++++++++++++++]
         
-Our Goal.
-Our main goal is to silently and FAST download an drop any binary executable to an Windows box,granting it administrate privileges to freely roam the system.
+
+Our main goal is to silently and FAST download an drop any binary executable to an Windows box,granting it administrator privileges to freely roam the system.
 
 It uses a simple 2 stage process
 
