@@ -32,7 +32,14 @@ As far as i can tell, still after the latest Windows 10 update, using this setup
 Tested on Win7,Win8 and Win10 running latest update.
 That is pretty sick...
 
-Full demo video: http://sendvid.com/uh6i317i
+Execution demo video: http://sendvid.com/uh6i317i
+
+Tutorial on how to use the Offline version of the payload + demo
+https://www.youtube.com/watch?v=X1uS0ELBJvI
+
+
+Tutorial on how to use the Online version of the payload + demo
+Coming soon
 
 As you can see, we get an meterpreter shell that says it's running under user, however, if we drop into a CMD shell inside the meterpreter module, we can see we are running inside the system32 dir, indicating that we are running as admin, we can even use the getsystem script in the meterpreter module to gain NT System privliges, that's pretty sick.(Tested working on Win7,Win8 and Win10! 
 
