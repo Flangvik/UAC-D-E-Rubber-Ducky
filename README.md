@@ -2,6 +2,10 @@ As featured on HAK5 - 2117, thanks! :)
 
 This the official blazing fast UAC-bypassing Rubber Ducky payload generator.
 For anything related , hit me up: https://twitter.com/SkiddieTech
+To keep yourself update on my latest projects 
+https://www.youtube.com/channel/UC7mbR9Jc7opzYP-scLOKaWg
+Subscribe! :)
+
 
           _   _  _   ___   ___  _   _  ___ _  __
          | | | |/_\ / __| |   \| | | |/ __| |/ /
