@@ -34,13 +34,13 @@ That is pretty sick...
 
 Execution demo video: http://sendvid.com/uh6i317i
 
-Tutorial on how to use the Offline version of the payload + demo
-Keep in mind you have to have your Ducky flashed with the Twin-Duck Firmware
+Tutorial on how to use the Offline version of the payload + demo.
+Keep in mind you have to have your Ducky flashed with the Twin-Duck Firmware.
 So you can store local files on the SD-Card and read it.
 https://www.youtube.com/watch?v=X1uS0ELBJvI
 
 
-Tutorial on how to use the Online version of the payload + demo
+Tutorial on how to use the Online version of the payload + demo.
 Coming soon
 
 As you can see, we get an meterpreter shell that says it's running under user, however, if we drop into a CMD shell inside the meterpreter module, we can see we are running inside the system32 dir, indicating that we are running as admin, we can even use the getsystem script in the meterpreter module to gain NT System privliges, that's pretty sick.(Tested working on Win7,Win8 and Win10! 
