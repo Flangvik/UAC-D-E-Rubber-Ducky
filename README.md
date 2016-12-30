@@ -35,6 +35,8 @@ That is pretty sick...
 Execution demo video: http://sendvid.com/uh6i317i
 
 Tutorial on how to use the Offline version of the payload + demo
+Keep in mind you have to have your Ducky flashed with the Twin-Duck Firmware
+So you can store local files on the SD-Card and read it.
 https://www.youtube.com/watch?v=X1uS0ELBJvI
 
 
