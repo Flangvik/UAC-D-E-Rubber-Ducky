@@ -36,8 +36,7 @@ NT Authority/System on ANY windows system u say?
 
 As far as i can tell, still after the latest Windows 10 update, using this setup togheter with the "Getsystem" script in the meterpreter module, we will always be able to get NT Authority/System permisson using Tech 1 (Named Pipe Impersonation (In Memory/Admin))
 
-Tested on Win7,Win8 and Win10 running latest update.
-That is pretty sick...
+Tested on Win7,Win8 and Win10 running latest update.(As of 2016)
 
 Execution demo video: http://sendvid.com/uh6i317i
 
